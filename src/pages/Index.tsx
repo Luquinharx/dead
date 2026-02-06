@@ -8,7 +8,13 @@ import { RentalModal } from '@/components/RentalModal';
 import { AdminPanel } from '@/components/AdminPanel';
 import { AuthModal } from '@/components/AuthModal';
 import { Button } from '@/components/ui/button';
-import { Gamepad2, TrendingUp, Shield, LogIn, LogOut, User, Users, ShoppingBag, BookOpen, CheckCircle } from 'lucide-react';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
+import { Crown, TrendingUp, Shield, LogIn, LogOut, User, Users, ShoppingBag, BookOpen, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { t } from '@/i18n';
 import Footer from '@/components/Footer';
@@ -113,32 +119,29 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center neon-glow">
-                <Gamepad2 className="w-6 h-6 text-primary" />
+                <Crown className="w-6 h-6 text-primary" />
               </div>
-              <div className="flex items-center gap-3">
-                <div>
-                  <h1 className="font-display text-xl font-bold tracking-wider flex items-center gap-3">
-                    <span className="text-primary neon-text">GAME</span>
-                    <span className="text-foreground">VAULT</span>
-                    <div className="ml-2 flex items-center gap-2">
-                      <button
-                        aria-label="Português"
-                        onClick={() => setLang('pt')}
-                        className={`w-7 h-7 rounded-full text-sm flex items-center justify-center transition-all ${lang === 'pt' ? 'bg-green-600 text-white ring-2 ring-green-300' : ''}`}
-                      >
-                        🇧🇷
-                      </button>
-                      <button
-                        aria-label="English"
-                        onClick={() => setLang('en')}
-                        className={`w-7 h-7 rounded-full text-sm flex items-center justify-center transition-all ${lang === 'en' ? 'bg-blue-600 text-white ring-2 ring-blue-300' : ''}`}
-                      >
-                        🇬🇧
-                      </button>
-                    </div>
-                  </h1>
-                  <p className="text-xs text-muted-foreground">{t(lang, 'siteSubtitle')}</p>
-                </div>
+              <div className="flex items-center gap-4">
+                <h1 className="font-camp text-2xl font-bold tracking-widest flex items-center gap-2 text-grunge select-none">
+                  <span className="text-primary neon-text">KINGCROWN</span>
+                  <span className="text-foreground">VAULT</span>
+                </h1>
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full overflow-hidden hover:bg-transparent">
+                      <span className="text-xl leading-none">{lang === 'pt' ? '🇧🇷' : '🇺🇸'}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="min-w-[auto]">
+                    <DropdownMenuItem onClick={() => setLang('pt')} className="gap-2 cursor-pointer justify-center">
+                      <span className="text-xl">🇧🇷</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setLang('en')} className="gap-2 cursor-pointer justify-center">
+                      <span className="text-xl">🇺🇸</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </div>
             
@@ -217,7 +220,7 @@ const Index = () => {
           <div className="cyber-border rounded-lg p-5">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                <Gamepad2 className="w-6 h-6 text-primary" />
+                <Crown className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t(lang, 'totalItems')}</p>

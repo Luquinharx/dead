@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
-import { LogIn, UserPlus, Gamepad2, Mail, Lock, User, ExternalLink, Hash } from 'lucide-react';
+import { LogIn, UserPlus, Crown, Mail, Lock, User, ExternalLink, Hash } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { t } from '@/i18n';
 
@@ -139,9 +139,11 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
       <DialogContent className="bg-card border-border sm:max-w-md max-h-[90vh] overflow-y-auto" aria-describedby={undefined}>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 font-display text-xl">
-            <Gamepad2 className="w-6 h-6 text-primary" />
-            <span className="text-primary neon-text">GAME</span>
-            <span>VAULT</span>
+            <Crown className="w-6 h-6 text-primary" />
+            <div className="flex items-center gap-1 animate-fail-glitch font-camp text-grunge tracking-widest">
+                <span className="text-primary neon-text">KINGCROWN</span>
+                <span className="text-foreground">VAULT</span>
+            </div>
           </DialogTitle>
         </DialogHeader>
 

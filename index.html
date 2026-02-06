@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GAMEVAULT — Luquinharx</title>
-    <meta name="description" content="GAMEVAULT - Item Rental Marketplace" />
+    <link rel="icon" type="image/svg+xml" href="/crown.svg" />
+    <title>KingCrowVault</title>
+    <meta name="description" content="KingCrownVault - Item Rental Marketplace" />
     <meta name="author" content="Luquinharx" />
 
-    <meta property="og:title" content="GAMEVAULT" />
+    <meta property="og:title" content="KingCrownVault" />
     <meta property="og:description" content="Item Rental Marketplace" />
     <meta property="og:type" content="website" />
 
@@ -15,6 +16,14 @@
   </head>
 
   <body>
+    <svg style="display: none;">
+      <defs>
+        <filter id="grunge-filter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
